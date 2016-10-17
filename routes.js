@@ -15,5 +15,8 @@ Router.map(function () {
     path: '/recent_users',
   });
 
+  this.route('tech', {
+    path: '/tech_used',
+  });
 
 });
