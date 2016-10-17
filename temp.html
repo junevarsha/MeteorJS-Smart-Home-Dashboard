@@ -31,7 +31,7 @@
   <h4 class="sub-header">Welcome to Dashboard App</h4>
   <li><a href='http://localhost:3000/list'>User Timestamp details</a></li>
 
-  <li><a href='#'>Recent user list</a></li>
+  <li><a href='http://localhost:3000/recent_users'>Recent user list</a></li>
 
 </div>
 </template>
@@ -93,6 +93,25 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <h2 class="page-header">List of User ids</h2>
 {{#each list_names}}
+<li><a href="http://localhost:3000/user/{{_id}}"> {{_id}}</a> </li>
+{{/each}}
+</div>
+</template>
+
+
+<template name = 'recent'>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://localhost:3000/">Return to Homepage</a>
+        </div>
+      </div>
+    </nav>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<h2 class="page-header">Recently posted User ids</h2>
+{{#each recent_list}}
 <li><a href="http://localhost:3000/user/{{_id}}"> {{_id}}</a> </li>
 {{/each}}
 </div>

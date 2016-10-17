@@ -58,4 +58,13 @@ if (Meteor.isClient) {
       // return li;
     },
   });
+
+    Template.recent.helpers({
+    'recent_list':function(){
+      // return Users.find().reverse();
+      return Users.find({}, {sort: {'created_at':-1}, limit:5});
+      // return Answers.find().sort({$natural: -1});
+      // return Users.find({}, {limit: 5});
+    },
+  });
 }

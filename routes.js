@@ -10,4 +10,10 @@ Router.map(function () {
   this.route('list', {
     path: '/list',
   });
+
+  this.route('recent', {
+    path: '/recent_users',
+  });
+
+
 });
