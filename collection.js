@@ -21,12 +21,32 @@ if (Meteor.isClient) {
 
     Template.users.helpers({
     'testingTemp': function (){ 
-      return "List of all the express js ids in meteor client : " + Users.find().count();
+      return Users.find().count();
     },
     'name': function (){ 
       return Users.findOne({_id: this._id}).name;
     },
-   'id': function (){ 
+    'value': function (){ 
+      var user = Users.findOne({_id:this._id});
+      var sensorArr = user.sensors;
+      if(sensorArr){
+        console.log("yes")
+        var arr = [];
+        sensorArr.forEach(function(entry) {
+          if(entry.measurements){
+            console.log("cool")
+            entry.measurements.forEach(function(entry1){
+              arr.push(entry1.value);
+              console.log(arr)
+            });
+          }
+        });
+      }
+      return arr;
+     },
+
+
+   'timestamp': function (){ 
       var user = Users.findOne({_id:this._id});
       var sensorArr = user.sensors;
       if(sensorArr){
