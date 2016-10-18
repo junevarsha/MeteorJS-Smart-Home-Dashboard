@@ -33,6 +33,7 @@ if (Meteor.isClient) {
         console.log("yes")
         var arr = [];
         sensorArr.forEach(function(entry) {
+          if(entry.sensor_name == "sen1") {
           if(entry.measurements){
             console.log("cool")
             entry.measurements.forEach(function(entry1){
@@ -40,6 +41,7 @@ if (Meteor.isClient) {
               console.log(arr)
             });
           }
+        }
         });
       }
       return arr;
