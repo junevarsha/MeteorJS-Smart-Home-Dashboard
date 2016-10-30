@@ -24,21 +24,19 @@ if (Meteor.isClient) {
       return Users.find().count();
     },
     'name': function (){ 
-      return Users.findOne({_id: this._id}).name;
+      return Users.findOne({_id: this.userObjFromRouter._id}).name;
     },
-    'value': function (){ 
-      var user = Users.findOne({_id:this._id});
+    'value': function (){  
+      var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
+      var sensorNameFromRouter = this.sensor_name;
       if(sensorArr){
-        console.log("yes")
         var arr = [];
         sensorArr.forEach(function(entry) {
-          if(entry.sensor_name == "sen1") {
-          if(entry.measurements){
-            console.log("cool")
-            entry.measurements.forEach(function(entry1){
+          if(entry.sensor_name == sensorNameFromRouter) {
+            if(entry.measurements){
+              entry.measurements.forEach(function(entry1){
               arr.push(entry1.value);
-              console.log(arr)
             });
           }
         }
@@ -47,9 +45,8 @@ if (Meteor.isClient) {
       return arr;
      },
 
-
    'timestamp': function (){ 
-      var user = Users.findOne({_id:this._id});
+      var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
       if(sensorArr){
         console.log("yes")
@@ -79,7 +76,26 @@ if (Meteor.isClient) {
       // });
       // return li;
     },
+
+    'real_id': function(){
+      return Users.findOne({_id:this._id})
+    },
+
+    'sensor_names': function (){ 
+      var user = Users.findOne({_id:this._id});
+      var sensorArr = user.sensors;
+      if(sensorArr){
+        console.log("yes")
+        var arr = [];
+        sensorArr.forEach(function(entry) {
+          arr.push(entry.sensor_name);
+          });
+      }
+      return arr;
+     },
   });
+
+
 
     Template.recent.helpers({
     'recent_list':function(){

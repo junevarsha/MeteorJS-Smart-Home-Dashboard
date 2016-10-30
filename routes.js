@@ -4,11 +4,17 @@ Router.map(function () {
     path: '/',  
   });
   this.route('users', {
-    path: '/user/:_id',
-    data: function () {return Users.findOne({_id: this.params._id})},
-  });
+    path: '/user/:_id/:sensor_name',
+    data: function(){
+      return {
+            userObjFromRouter: Users.findOne({_id: this.params._id}),
+            sensor_name: this.params.sensor_name
+          };
+        }
+      });
+
   this.route('list', {
-    path: '/list',
+    path: '/userList',
   });
 
   this.route('recent', {

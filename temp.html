@@ -29,7 +29,7 @@
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="page-header">Home</h2>
   <h4 class="sub-header">Welcome to Dashboard App</h4>
-  <li><a href='http://localhost:3000/list'>User Timestamp details</a></li>
+  <li><a href='http://localhost:3000/userList'>User Timestamp details</a></li>
 
   <li><a href='http://localhost:3000/recent_users'>Recent user list</a></li>
 
@@ -95,9 +95,22 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <h2 class="page-header">List of User ids</h2>
+
 {{#each list_names}}
-<li><a href="http://localhost:3000/user/{{_id}}"> {{_id}}</a> </li>
+  <li><h3>{{_id}}</h3></li>
+  {{#each sensors}}
+    <ul style="list-style-type:square"><li>{{sensor_name}}</li></ul>
+  {{/each}}
 {{/each}}
+
+<!-- {{#each list_names}}
+<li>{{name}}</li>
+{{#each sensors}}
+{{sensor_name}}
+{{/each}}
+{{/each}} -->
+
+
 </div>
 </template>
 
