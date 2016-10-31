@@ -4,7 +4,7 @@ Router.map(function () {
     path: '/',  
   });
   this.route('users', {
-    path: '/user/:_id/:sensor_name',
+    path: '/userList/:_id/:sensor_name',
     data: function(){
       return {
             userObjFromRouter: Users.findOne({_id: this.params._id}),

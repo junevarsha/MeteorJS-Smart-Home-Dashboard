@@ -48,16 +48,17 @@ if (Meteor.isClient) {
    'timestamp': function (){ 
       var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
+      var sensorNameFromRouter = this.sensor_name;
       if(sensorArr){
-        console.log("yes")
         var arr = [];
         sensorArr.forEach(function(entry) {
-          if(entry.measurements){
-            console.log("cool")
+          if(entry.sensor_name == sensorNameFromRouter) {
+           if(entry.measurements){
             entry.measurements.forEach(function(entry1){
               arr.push(entry1.time);
               console.log(arr)
             });
+          }
           }
         });
       }
@@ -68,41 +69,13 @@ if (Meteor.isClient) {
     Template.list.helpers({
     'list_names':function(){
       return Users.find();
-      // data = Users.find().fetch();
-      // return data.name
-      // var li = [];
-      // data.forEach(function(entry) {
-      // li.push(entry.name)
-      // });
-      // return li;
     },
-
-    'real_id': function(){
-      return Users.findOne({_id:this._id})
-    },
-
-    'sensor_names': function (){ 
-      var user = Users.findOne({_id:this._id});
-      var sensorArr = user.sensors;
-      if(sensorArr){
-        console.log("yes")
-        var arr = [];
-        sensorArr.forEach(function(entry) {
-          arr.push(entry.sensor_name);
-          });
-      }
-      return arr;
-     },
   });
-
 
 
     Template.recent.helpers({
     'recent_list':function(){
-      // return Users.find().reverse();
       return Users.find({}, {sort: {'created_at':-1}, limit:5});
-      // return Answers.find().sort({$natural: -1});
-      // return Users.find({}, {limit: 5});
     },
   });
 }
