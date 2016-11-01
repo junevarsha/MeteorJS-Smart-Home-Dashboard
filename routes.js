@@ -3,6 +3,7 @@ Router.map(function () {
   this.route('home', {
     path: '/',  
   });
+
   this.route('users', {
     path: '/userList/:_id/:sensor_name',
     data: function(){
@@ -12,6 +13,17 @@ Router.map(function () {
           };
         }
       });
+
+
+
+  this.route('sen', {
+    path: '/senList/:_id/',
+     data: function(){
+      return {
+            userObjFromRouter: Users.findOne({_id: this.params._id}),
+          };
+        }
+  });
 
   this.route('list', {
     path: '/userList',

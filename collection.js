@@ -72,10 +72,27 @@ if (Meteor.isClient) {
     },
   });
 
-
     Template.recent.helpers({
     'recent_list':function(){
       return Users.find({}, {sort: {'created_at':-1}, limit:5});
     },
   });
+
+
+    Template.sen.helpers({
+    'list_sen': function (){ 
+      var user = Users.findOne({_id:this.userObjFromRouter._id});
+      var sensorArr = user.sensors;
+      // if(sensorArr){
+      //   console.log("yes")
+      //   var arr = [];
+      //   sensorArr.forEach(function(entry) {
+      //     arr.push(entry.sensor_name);
+      //     });
+      // }
+      return sensorArr;
+     },
+
+  });
+
 }
