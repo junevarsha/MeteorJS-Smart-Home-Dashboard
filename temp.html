@@ -72,8 +72,17 @@
 
 <tbody>
 <tr>
-<td>{{value}}</td>
-<td>{{timestamp}}</td>
+<td>
+{{#each val}}
+  <li>{{value}}</li>
+{{/each}}
+</td>
+
+<td>
+{{#each timestamp}}
+  <li>{{time}}</li>
+{{/each}}
+</td>
 </tr>
 </tbody>
 </table>

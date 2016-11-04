@@ -26,7 +26,7 @@ if (Meteor.isClient) {
     'name': function (){ 
       return Users.findOne({_id: this.userObjFromRouter._id}).name;
     },
-    'value': function (){  
+      'val': function (){  
       var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
       var sensorNameFromRouter = this.sensor_name;
@@ -35,9 +35,7 @@ if (Meteor.isClient) {
         sensorArr.forEach(function(entry) {
           if(entry.sensor_name == sensorNameFromRouter) {
             if(entry.measurements){
-              entry.measurements.forEach(function(entry1){
-              arr.push(entry1.value);
-            });
+              arr = entry.measurements
           }
         }
         });
@@ -45,7 +43,7 @@ if (Meteor.isClient) {
       return arr;
      },
 
-   'timestamp': function (){ 
+      'timestamp': function (){ 
       var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
       var sensorNameFromRouter = this.sensor_name;
@@ -54,16 +52,54 @@ if (Meteor.isClient) {
         sensorArr.forEach(function(entry) {
           if(entry.sensor_name == sensorNameFromRouter) {
            if(entry.measurements){
-            entry.measurements.forEach(function(entry1){
-              arr.push(entry1.time);
-              console.log(arr)
-            });
+             arr = entry.measurements
           }
           }
         });
       }
       return arr;
      },
+
+
+
+    // 'value': function (){  
+    //   var user = Users.findOne({_id:this.userObjFromRouter._id});
+    //   var sensorArr = user.sensors;
+    //   var sensorNameFromRouter = this.sensor_name;
+    //   if(sensorArr){
+    //     var arr = [];
+    //     sensorArr.forEach(function(entry) {
+    //       if(entry.sensor_name == sensorNameFromRouter) {
+    //         if(entry.measurements){
+    //           entry.measurements.forEach(function(entry1){
+    //           arr.push(entry1.value);
+    //         });
+    //       }
+    //     }
+    //     });
+    //   }
+    //   return arr;
+    //  },
+
+   // 'timestamp': function (){ 
+   //    var user = Users.findOne({_id:this.userObjFromRouter._id});
+   //    var sensorArr = user.sensors;
+   //    var sensorNameFromRouter = this.sensor_name;
+   //    if(sensorArr){
+   //      var arr = [];
+   //      sensorArr.forEach(function(entry) {
+   //        if(entry.sensor_name == sensorNameFromRouter) {
+   //         if(entry.measurements){
+   //          entry.measurements.forEach(function(entry1){
+   //            arr.push(entry1.time);
+   //            console.log(arr)
+   //          });
+   //        }
+   //        }
+   //      });
+   //    }
+   //    return arr;
+   //   },
 
   });
     Template.list.helpers({
