@@ -5,7 +5,7 @@ Router.map(function () {
   });
 
   this.route('users', {
-    path: '/userList/:_id/:sensor_name',
+    path: '/senList/:_id/:sensor_name',
     data: function(){
       return {
             userObjFromRouter: Users.findOne({_id: this.params._id}),
@@ -13,8 +13,6 @@ Router.map(function () {
           };
         }
       });
-
-
 
   this.route('sen', {
     path: '/senList/:_id/',
