@@ -20,12 +20,17 @@ if (Meteor.isClient) {
   });
 
     Template.users.helpers({
-    'testingTemp': function (){ 
-      return Users.find().count();
-    },
+
     'name': function (){ 
       return Users.findOne({_id: this.userObjFromRouter._id}).name;
     },
+    'id': function (){ 
+      return Users.findOne({_id: this.userObjFromRouter._id})._id;
+    },
+    'sen': function (){ 
+      return this.sensor_name;
+     },
+
       'val': function (){  
       var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
@@ -59,52 +64,14 @@ if (Meteor.isClient) {
       }
       return arr;
      },
-
-
-
-    // 'value': function (){  
-    //   var user = Users.findOne({_id:this.userObjFromRouter._id});
-    //   var sensorArr = user.sensors;
-    //   var sensorNameFromRouter = this.sensor_name;
-    //   if(sensorArr){
-    //     var arr = [];
-    //     sensorArr.forEach(function(entry) {
-    //       if(entry.sensor_name == sensorNameFromRouter) {
-    //         if(entry.measurements){
-    //           entry.measurements.forEach(function(entry1){
-    //           arr.push(entry1.value);
-    //         });
-    //       }
-    //     }
-    //     });
-    //   }
-    //   return arr;
-    //  },
-
-   // 'timestamp': function (){ 
-   //    var user = Users.findOne({_id:this.userObjFromRouter._id});
-   //    var sensorArr = user.sensors;
-   //    var sensorNameFromRouter = this.sensor_name;
-   //    if(sensorArr){
-   //      var arr = [];
-   //      sensorArr.forEach(function(entry) {
-   //        if(entry.sensor_name == sensorNameFromRouter) {
-   //         if(entry.measurements){
-   //          entry.measurements.forEach(function(entry1){
-   //            arr.push(entry1.time);
-   //            console.log(arr)
-   //          });
-   //        }
-   //        }
-   //      });
-   //    }
-   //    return arr;
-   //   },
-
   });
+
     Template.list.helpers({
     'list_names':function(){
       return Users.find();
+    },
+    'testingTemp': function (){ 
+      return Users.find().count();
     },
   });
 
@@ -119,15 +86,12 @@ if (Meteor.isClient) {
     'list_sen': function (){ 
       var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
-      // if(sensorArr){
-      //   console.log("yes")
-      //   var arr = [];
-      //   sensorArr.forEach(function(entry) {
-      //     arr.push(entry.sensor_name);
-      //     });
-      // }
       return sensorArr;
      },
+
+    'name': function (){ 
+      return Users.findOne({_id: this.userObjFromRouter._id}).name;
+    },
 
   });
 

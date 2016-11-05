@@ -18,8 +18,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://localhost:3000/about">About Project</a></li>
-            <li><a href="http://localhost:3000/tech_used">Technologies Used</a></li>
+            <li><a href="http://10.0.1.5:3000/about">About Project</a></li>
+            <li><a href="http://10.0.1.5:3000/tech_used">Technologies Used</a></li>
           </ul>
         </div>
       </div>
@@ -29,9 +29,9 @@
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <h2 class="page-header">Home</h2>
   <h4 class="sub-header">Welcome to Dashboard App</h4>
-  <li><a href='http://localhost:3000/userList'>User Timestamp details</a></li>
+  <li><a href='http://10.0.1.5:3000/userList'>User Timestamp details</a></li>
 
-  <li><a href='http://localhost:3000/recent_users'>Recent user list</a></li>
+  <li><a href='http://10.0.1.5:3000/recent_users'>Recent user list</a></li>
 
 </div>
 </template>
@@ -49,18 +49,25 @@
       <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://localhost:3000/">Return to Homepage</a>
+          <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
         </div>
       </div>
     </nav>
 
+
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<h3 class="page-header">Total number of users: {{testingTemp}}
-</h3>
-<h4 class="page-header">Current User : {{name}}</h4>
 
 
-<h3 class="sub-header">Timestamps</h3>
+  <p>
+
+    <a class="btn btn-md btn-primary" href="http://10.0.1.5:3000/senList/{{id}}" role="button">Back to sensor list</a>
+
+  </p>
+
+<h4 class="page-header">User Name : {{name}}</h4>
+
+<h4 class="page-header">Sensor name : {{sen}}</h4>
+
 <div class="table-responsive">
 <table class="table table-striped">
 <thead>
@@ -74,13 +81,13 @@
 <tr>
 <td>
 {{#each val}}
-  <li>{{value}}</li>
+  <h3>{{value}}</h3>
 {{/each}}
 </td>
 
 <td>
 {{#each timestamp}}
-  <li>{{time}}</li>
+  <h3>{{time}}</h3>
 {{/each}}
 </td>
 </tr>
@@ -97,19 +104,19 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://localhost:3000/">Return to Homepage</a>
+          <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
         </div>
       </div>
     </nav>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<h2 class="page-header">List of User ids</h2>
+<h2 class="page-header">User List</h2>
+
+<h3 class="page-header">Total number of users: {{testingTemp}}
+</h3>
 
 {{#each list_names}}
-  <li><h3><a href='http://localhost:3000/senList/{{_id}}/'>{{_id}}</a></h3></li>
-<!--   {{#each sensors}}
-    <ul style="list-style-type:square"><li>{{sensor_name}}</li></ul>
-  {{/each}} -->
+  <li><h3><a href='http://10.0.1.5:3000/senList/{{_id}}/'>{{_id}}</a></h3></li>
 {{/each}}
 
 </div>
@@ -121,24 +128,27 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://localhost:3000/">Return to Homepage</a>
+          <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
         </div>
       </div>
     </nav>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-<!-- {{#each list_sen}}
-  <li><h3><a href='#'>{{_id}}</a></h3></li>
-  {{#each sensors}}
-    <ul style="list-style-type:square"><li>{{sensor_name}}</li></ul>
-  {{/each}}
-{{/each}} -->
+  <p>
+
+    <a class="btn btn-md btn-primary" href="http://10.0.1.5:3000/userList" role="button">Back to user list</a>
+
+  </p>
+
+
+<h4 class="page-header">User's Sensor List</h4>
+
+<h4 class="page-header">User Name : {{name}}</h4>
 
 {{#each list_sen}}
-<li><a href='http://localhost:3000/senList/{{u_id}}/{{sensor_name}}'> {{sensor_name}} </a> </li>
+<li><h4><a href='http://10.0.1.5:3000/senList/{{u_id}}/{{sensor_name}}'> {{sensor_name}} </a></h4> </li>
 {{/each}}
-
 
 </div>
 </template>
@@ -150,7 +160,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://localhost:3000/">Return to Homepage</a>
+          <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
         </div>
       </div>
     </nav>
