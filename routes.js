@@ -1,6 +1,5 @@
-Router.map(function () {
-  this.route('about'); 
-  this.route('home', {
+Router.map(function () { 
+  this.route('list', {
     path: '/',  
   });
 
@@ -23,16 +22,9 @@ Router.map(function () {
         }
   });
 
-  this.route('list', {
-    path: '/userList',
-  });
-
   this.route('recent', {
     path: '/recent_users',
   });
 
-  this.route('tech', {
-    path: '/tech_used',
-  });
 
 });

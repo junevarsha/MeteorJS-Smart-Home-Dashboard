@@ -1,162 +1,151 @@
 <head>
-  <title>Rest IR Demo</title>
+  <title>Sensor Dashboard</title>
   <link href="dashboard.css" rel="stylesheet">
   <link href="bootstrap.min.css" rel="stylesheet">
 </head>
 
-<template name="home">
+
+<template name = 'list'>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="#">Sensor Dashboard</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://10.0.1.5:3000/about">About Project</a></li>
-            <li><a href="http://10.0.1.5:3000/tech_used">Technologies Used</a></li>
-          </ul>
-        </div>
       </div>
     </nav>
-
-
-  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h2 class="page-header">Home</h2>
-  <h4 class="sub-header">Welcome to Dashboard App</h4>
-  <li><a href='http://10.0.1.5:3000/userList'>User Details</a></li>
-
-  <li><a href='http://10.0.1.5:3000/recent_users'>Recent user list</a></li>
-
-</div>
-</template>
-
-<template name = 'about'>
-<h2>TODO-Add git links to the project</h2>
-</template>
-
-<template name = 'tech'>
-<h2>TODO-Add meteor, mongo and express images</h2>
-</template>
-
-<template name = 'users'>
-
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
-        </div>
-      </div>
-    </nav>
-
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-
-  <p>
-
-    <a class="btn btn-md btn-primary" href="http://10.0.1.5:3000/senList/{{id}}" role="button">Back to sensor list</a>
-
-  </p>
-
-<h4 class="page-header">User Name : {{name}}</h4>
-
-<h4 class="page-header">Sensor name : {{sen}}</h4>
+<h3 class="page-header">User List</h3>
+<h4 class="page-header">Total number of users: {{testingTemp}}
+</h4>
 
 <div class="table-responsive">
+
 <table class="table table-striped">
 <thead>
 <tr>
-<th>Value</th>
-<th>Timestamps</th>
+<th><h4>User ID</h4></th>
+<th><h4>Name</h4></th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
+
 <td>
-{{#each val}}
-  <h3>{{value}}</h3>
+{{#each list_names}}
+  <h4><a href='http://10.0.1.5:3000/senList/{{_id}}/'>{{_id}}</a></h4>
 {{/each}}
 </td>
 
 <td>
-{{#each timestamp}}
-  <h3>{{time}}</h3>
+{{#each list_names}}
+  <h4>{{name}}</h4>
+{{/each}}
+</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</template>
+
+<template name = 'sen'>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://10.0.1.5:3000/">Sensor Dashboard</a>
+        </div>
+      </div>
+    </nav>
+    
+<ol class="breadcrumb">
+  <li class='active'><a href="http://10.0.1.5:3000/">Back to User List</a></li>
+</ol>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<h3 class="page-header">User's Sensor List</h3>
+<h4 class="page-header">User Name : {{name}}</h4>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+<tr>
+<th><h4>Sensor Name</h4></th>
+<th><h4>Description</h4></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+
+<td>
+{{#each list_sen}}
+<h4><a href='http://10.0.1.5:3000/senList/{{u_id}}/{{sensor_name}}'> {{sensor_name}} </a></h4>
+{{/each}}
+</td>
+
+<td>
+{{#each list_names}}
+  <li><h4></h4></li>
 {{/each}}
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-
 </div>
 </template>
 
 
-<template name = 'list'>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+<template name = 'users'>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
+          <a class="navbar-brand" href="http://10.0.1.5:3000/">Sensor Dashboard</a>
         </div>
       </div>
     </nav>
 
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<h2 class="page-header">User List</h2>
-
-<h3 class="page-header">Total number of users: {{testingTemp}}
-</h3>
-
-{{#each list_names}}
-  <li><h3><a href='http://10.0.1.5:3000/senList/{{_id}}/'>{{_id}}</a></h3></li>
-{{/each}}
-
-</div>
-</template>
-
-
-<template name = 'sen'>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
-        </div>
-      </div>
-    </nav>
+<ol class="breadcrumb">
+  <li class='active'><a href="http://10.0.1.5:3000/">Back to User List</a></li>
+  <li><a href="http://10.0.1.5:3000/senList/{{id}}">Back to Sensor List</a></li>
+</ol>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
-  <p>
-
-    <a class="btn btn-md btn-primary" href="http://10.0.1.5:3000/userList" role="button">Back to user list</a>
-
-  </p>
-
-
-<h4 class="page-header">User's Sensor List</h4>
-
+<h3 class="page-header">Sensor Data</h3>
 <h4 class="page-header">User Name : {{name}}</h4>
-
-{{#each list_sen}}
-<li><h4><a href='http://10.0.1.5:3000/senList/{{u_id}}/{{sensor_name}}'> {{sensor_name}} </a></h4> </li>
+<h4 class="page-header">Sensor name : {{sen}}</h4>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+<tr>
+<th><h4>Value</h4></th>
+<th><h4>Timestamps</h4></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+{{#each val}}
+  <h4>{{value}}</h4>
 {{/each}}
-
+</td>
+<td>
+{{#each timestamp}}
+  <h4>{{time}}</h4>
+{{/each}}
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </template>
-
 
 
 <template name = 'recent'>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">

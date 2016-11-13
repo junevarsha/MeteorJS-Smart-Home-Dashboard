@@ -31,6 +31,14 @@ if (Meteor.isClient) {
       return this.sensor_name;
      },
 
+         'list_names':function(){
+      return Users.find();
+    },
+    'testingTemp': function (){ 
+      return Users.find().count();
+    },
+    
+
       'val': function (){  
       var user = Users.findOne({_id:this.userObjFromRouter._id});
       var sensorArr = user.sensors;
@@ -72,6 +80,9 @@ if (Meteor.isClient) {
     },
     'testingTemp': function (){ 
       return Users.find().count();
+    },
+    'id': function (){ 
+      return Users.findOne({_id: this.userObjFromRouter._id})._id;
     },
   });
 
