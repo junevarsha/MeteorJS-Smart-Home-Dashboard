@@ -104,6 +104,18 @@ if (Meteor.isClient) {
       return Users.findOne({_id: this.userObjFromRouter._id}).name;
     },
 
+    // 'recent_val':function (){
+    //   var user = Users.findOne({_id:this.userObjFromRouter._id});
+    //   var sensorArr = user.sensors;
+    //   arr = [];
+    //   sensorArr.forEach(function(entry) {
+    //     arr = entry.measurements;
+    //     console.log("CHECK" + sensorArr.measurements)
+    //   });
+    //   return arr;
+    //   // return Users.findOne({}, {sort: {DateTime: -1, limit: 1}});
+    // },
+
   });
 
 }

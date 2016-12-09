@@ -9,7 +9,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Sensor Dashboard</a>
+          <a class="navbar-brand" href="#">Smart Home Dashboard</a>
         </div>
       </div>
     </nav>
@@ -62,19 +62,20 @@
     </nav>
     
 <ol class="breadcrumb">
-  <li class='active'><a href="http://10.0.1.5:3000/">Back to User List</a></li>
+  <li class='active'><a href="http://10.0.1.5:3000/">User List</a></li>
 </ol>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<h3 class="page-header">User's Sensor List</h3>
-<h4 class="page-header">User Name : {{name}}</h4>
+<h3 class="page-header">{{name}}'s Sensor List</h3>
 <div class="table-responsive">
 <table class="table table-striped">
 <thead>
 <tr>
 <th><h4>Sensor Name</h4></th>
+
 <th><h4>Description</h4></th>
-</tr>
+<!-- <th><h4>Recent Value</h4></th>
+ --></tr>
 </thead>
 
 <tbody>
@@ -91,6 +92,11 @@
   <h4>{{description}}</h4>
 {{/each}}
 </td>
+
+<td>
+
+</td>
+
 </tr>
 </tbody>
 </table>
@@ -109,8 +115,8 @@
     </nav>
 
 <ol class="breadcrumb">
-  <li class='active'><a href="http://10.0.1.5:3000/">Back to User List</a></li>
-  <li><a href="http://10.0.1.5:3000/senList/{{id}}">Back to Sensor List</a></li>
+  <li class='active'><a href="http://10.0.1.5:3000/">User List</a></li>
+  <li><a href="http://10.0.1.5:3000/senList/{{id}}">Sensor List</a></li>
 </ol>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
