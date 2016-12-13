@@ -154,9 +154,34 @@
       </div>
    </nav>
    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h2 class="page-header">Recently Users</h2>
-      {{#each recent_list}}
-      <li><a href='http://10.0.1.5:3000/senList/{{_id}}'>{{_id}}</a></li>
-      {{/each}}
+      <h3 class="page-header">Recent Users</h3>
+         <div class="table-responsive">
+         <table class="table table-striped">
+            <thead>
+               <tr>
+                  <th>
+                     <h4>User ID</h4>
+                  </th>
+                  <th>
+                     <h4>Name</h4>
+                  </th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>
+                     {{#each recent_list}}
+                     <h4><a href='http://10.0.1.5:3000/senList/{{_id}}/'>{{_id}}</a></h4>
+                     {{/each}}
+                  </td>
+                  <td>
+                     {{#each recent_list}}
+                     <h4>{{name}}</h4>
+                     {{/each}}
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
    </div>
 </template>
