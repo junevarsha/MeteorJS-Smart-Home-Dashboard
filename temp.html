@@ -1,7 +1,7 @@
 <head>
    <title>Sensor Dashboard</title>
    <link href="dashboard.css" rel="stylesheet">
-   <link href="bootstrap.min.css" rel="stylesheet">
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <template name = 'list'>
@@ -12,7 +12,7 @@
          </div>
          <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-               <li><a href="http://10.0.1.5:3000/recent_users/">Recent Users</a></li>
+               <li><a href="/recent_users/">Recent Users</a></li>
                <li><a href="https://github.com/junevarsha/ExpressJS-Smart-Home-Dashboard">Github</a></li>
             </ul>
          </div>
@@ -37,7 +37,7 @@
                <tr>
                   <td>
                      {{#each list_names}}
-                     <h4><a href='http://10.0.1.5:3000/senList/{{_id}}/'>{{_id}}</a></h4>
+                     <h4><a href='http://localhost:3000/senList/{{_id}}/'>{{_id}}</a></h4>
                      {{/each}}
                   </td>
                   <td>
@@ -56,12 +56,12 @@
    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
          <div class="navbar-header">
-            <a class="navbar-brand" href="http://10.0.1.5:3000/">Sensor Dashboard</a>
+            <a class="navbar-brand" href="http://localhost:3000/">Sensor Dashboard</a>
          </div>
       </div>
    </nav>
    <ol class="breadcrumb">
-      <li class='active'><a href="http://10.0.1.5:3000/">User List</a></li>
+      <li class='active'><a href="/">User List</a></li>
    </ol>
    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h3 class="page-header">{{name}}'s sensor list</h3>
@@ -81,7 +81,7 @@
                <tr>
                   <td>
                      {{#each list_sen}}
-                     <h4><a href='http://10.0.1.5:3000/senList/{{u_id}}/{{sensor_name}}'> {{sensor_name}} </a></h4>
+                     <h4><a href='/senList/{{u_id}}/{{sensor_name}}'> {{sensor_name}} </a></h4>
                      {{/each}}
                   </td>
                   <td>
@@ -102,13 +102,13 @@
    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
          <div class="navbar-header">
-            <a class="navbar-brand" href="http://10.0.1.5:3000/">Sensor Dashboard</a>
+            <a class="navbar-brand" href="/">Sensor Dashboard</a>
          </div>
       </div>
    </nav>
    <ol class="breadcrumb">
-      <li class='active'><a href="http://10.0.1.5:3000/">User List</a></li>
-      <li><a href="http://10.0.1.5:3000/senList/{{id}}">Sensor List</a></li>
+      <li class='active'><a href="/">User List</a></li>
+      <li><a href="/senList/{{id}}">Sensor List</a></li>
    </ol>
    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h3 class="page-header">Sensor Data</h3>
@@ -149,7 +149,7 @@
    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
          <div class="navbar-header">
-            <a class="navbar-brand" href="http://10.0.1.5:3000/">Return to Homepage</a>
+            <a class="navbar-brand" href="/">Return to Homepage</a>
          </div>
       </div>
    </nav>
@@ -171,7 +171,7 @@
                <tr>
                   <td>
                      {{#each recent_list}}
-                     <h4><a href='http://10.0.1.5:3000/senList/{{_id}}/'>{{_id}}</a></h4>
+                     <h4><a href='/senList/{{_id}}/'>{{_id}}</a></h4>
                      {{/each}}
                   </td>
                   <td>
